@@ -7,4 +7,13 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="gray">#999999</color>
+
+    <color name="colorPrimary">#6650A4</color>      <!-- Purple40 -->
+    <color name="colorSecondary">#625B71</color>    <!-- PurpleGrey40 -->
+    <color name="colorTertiary">#7D5260</color>     <!-- Pink40 -->
+    <color name="colorPrimaryDark">#D0BCFF</color>  <!-- Purple80 -->
+    <color name="colorSecondaryDark">#CCC2DC</color><!-- PurpleGrey80 -->
+    <color name="colorTertiaryDark">#EFB8C8</color> <!-- Pink80 -->
+
 </resources>

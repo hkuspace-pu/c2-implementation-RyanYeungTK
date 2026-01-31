@@ -10,6 +10,33 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.CW2_Apps" />
+        android:theme="@style/Theme.CW2_Apps">
+
+        <activity android:name=".LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".guest.GuestHomeActivity" tools:ignore="Instantiatable" />
+        <activity android:name=".guest.GuestMenuActivity" tools:ignore="Instantiatable"/>
+        <activity android:name=".guest.GuestBookingActivity" tools:ignore="Instantiatable"/>
+        <activity android:name=".guest.GuestReservationActivity" tools:ignore="Instantiatable"/>
+        <activity android:name=".guest.GuestNoticeActivity" tools:ignore="Instantiatable"/>
+        <activity android:name=".guest.GuestSettingActivity" tools:ignore="Instantiatable"/>
+
+        <activity android:name=".staff.StaffHomeActivity" tools:ignore="Instantiatable" />
+        <activity android:name=".staff.StaffMenuActivity" tools:ignore="Instantiatable"/>
+        <activity android:name=".staff.StaffBookActivity" tools:ignore="Instantiatable"/>
+        <activity android:name=".staff.StaffNoticeActivity" tools:ignore="Instantiatable"/>
+        <activity android:name=".staff.StaffSettingActivity" tools:ignore="Instantiatable"/>
+
+        <activity android:name=".RegisterActivity" tools:ignore="Instantiatable"/>
+
+    </application>
+
+
 
 </manifest>
