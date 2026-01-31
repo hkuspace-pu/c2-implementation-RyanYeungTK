@@ -1,0 +1,7 @@
+<resources>
+    <attr name="colorPrimary" format="color"/>
+    <attr name="colorError" format="color"/>
+    <attr name="colorOnError" format="color"/>
+    <attr name="colorSecondaryContainer" format="color"/>
+    <attr name="colorOnSecondaryContainer" format="color"/>
+</resources>

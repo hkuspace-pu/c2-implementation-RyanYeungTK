@@ -10,6 +10,7 @@
     <string name="setting">Setting</string>
     <string name="logout">Logout</string>
     <string name="register">Register</string>
+    <string name="booking_manage">Booking Management</string>
 
     <string name="menuManage">Menu Management</string>
     <string name="booking_record">All Booking Record</string>
@@ -24,4 +25,5 @@
     <string name="edit">Edit</string>
     <string name="cancel">Cancel</string>
     <string name="confirmed">Confirmed</string>
+    <string name="confirm">Confirm</string>
 </resources>

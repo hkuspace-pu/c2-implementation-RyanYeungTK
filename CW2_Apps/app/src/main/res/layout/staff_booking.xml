@@ -11,16 +11,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
-        android:theme="@style/ThemeOverlay.Material3.Dark.ActionBar">
+        android:theme="@style/ThemeOverlay.CW2Apps.Toolbar.Purple">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/topAppBar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="@string/my_booking"
-            app:titleCentered="true"
+            app:navigationContentDescription="Back"
             app:navigationIcon="@drawable/ic_arrow_back"
-            app:navigationContentDescription="Back" />
+            app:title="@string/booking_manage"
+            app:titleCentered="true" />
     </com.google.android.material.appbar.AppBarLayout>
 
 
@@ -31,25 +31,15 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <include
-            layout="@layout/item_booking"
-            android:id="@+id/itemBooking1"/>
-
-        <Space
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvBookings"
             android:layout_width="match_parent"
-            android:layout_height="12dp"/>
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="8dp"
+            android:clipToPadding="false"
+            android:paddingBottom="12dp" />
 
-        <include
-            layout="@layout/item_booking"
-            android:id="@+id/itemBooking2"/>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="12dp"/>
-
-        <include
-            layout="@layout/item_booking"
-            android:id="@+id/itemBooking3"/>
 
     </LinearLayout>
 

@@ -11,16 +11,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
-        android:theme="@style/ThemeOverlay.Material3.Dark.ActionBar">
+        android:theme="@style/ThemeOverlay.CW2Apps.Toolbar.Purple">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/topAppBar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="@string/menu"
-            app:titleCentered="true"
+            app:navigationContentDescription="Back"
             app:navigationIcon="@drawable/ic_arrow_back"
-            app:navigationContentDescription="Back" />
+            app:title="@string/menu"
+            app:titleCentered="true" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
@@ -56,7 +56,6 @@
                 android:padding="10dp"
                 android:layout_marginEnd="8dp">
 
-                <!-- 圖片容器 -->
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="130dp">
@@ -73,7 +72,7 @@
                 </FrameLayout>
 
                 <TextView
-                    android:id="@+id/tvPastaName"
+                    android:id="@+id/tvName_pasta"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Tomato Pasta"
@@ -81,22 +80,53 @@
                     android:textSize="14sp"/>
 
                 <TextView
-                    android:id="@+id/tvPastaPrice"
+                    android:id="@+id/tvPrice_pasta"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="$120"
                     android:textColor="#5F5F5F"
                     android:textSize="14sp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnEdit_pasta"
+                        style="@style/Widget.Material3.Button.Icon"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:contentDescription="Edit"
+                        app:icon="@drawable/ic_edit_24"
+                        app:cornerRadius="24dp"
+                        app:iconTint="@android:color/white"
+                        app:backgroundTint="?attr/colorPrimary" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnDelete_pasta"
+                        style="@style/Widget.Material3.Button.Icon"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="8dp"
+                        android:contentDescription="Delete"
+                        app:icon="@drawable/ic_delete_24"
+                        app:cornerRadius="24dp"
+                        app:iconTint="@android:color/white"
+                        app:backgroundTint="@color/red_600"/>
+                </LinearLayout>
+
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:layout_weight="1"
-                android:orientation="vertical"
                 android:background="@drawable/bg_tile"
-                android:padding="10dp"
-                android:layout_marginStart="8dp">
+                android:orientation="vertical"
+                android:padding="10dp">
 
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -106,28 +136,60 @@
                         android:id="@+id/imgPizza"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_marginTop="8dp"
                         android:scaleType="fitCenter"
                         android:src="@drawable/pizza"
-                        tools:src="@drawable/pizza"
-                        android:layout_marginTop="8dp"/>
+                        tools:src="@drawable/pizza" />
                 </FrameLayout>
 
                 <TextView
-                    android:id="@+id/tvPizzaName"
+                    android:id="@+id/tvName_pizza"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Cheese Pizza"
                     android:textColor="#5F5F5F"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/tvPizzaPrice"
+                    android:id="@+id/tvPrice_pizza"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="$250"
                     android:textColor="#5F5F5F"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnEdit_pizza"
+                        style="@style/Widget.Material3.Button.Icon"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:contentDescription="Edit"
+                        app:icon="@drawable/ic_edit_24"
+                        app:cornerRadius="24dp"
+                        app:iconTint="@android:color/white"
+                        app:backgroundTint="?attr/colorPrimary" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnDelete_pizza"
+                        style="@style/Widget.Material3.Button.Icon"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="8dp"
+                        android:contentDescription="Delete"
+                        app:icon="@drawable/ic_delete_24"
+                        app:cornerRadius="24dp"
+                        app:iconTint="@android:color/white"
+                        app:backgroundTint="@color/red_600"/>
+                </LinearLayout>
             </LinearLayout>
+
+
         </LinearLayout>
 
         <LinearLayout
@@ -160,20 +222,51 @@
                 </FrameLayout>
 
                 <TextView
-                    android:id="@+id/tvSaladName"
+                    android:id="@+id/tvName_salad"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Caesar Salad"
                     android:textColor="#5F5F5F"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/tvSaladPrice"
+                    android:id="@+id/tvPrice_salad"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="$80"
                     android:textColor="#5F5F5F"
                     android:textSize="14sp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnEdit_salad"
+                        style="@style/Widget.Material3.Button.Icon"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:contentDescription="Edit"
+                        app:icon="@drawable/ic_edit_24"
+                        app:cornerRadius="24dp"
+                        app:iconTint="@android:color/white"
+                        app:backgroundTint="?attr/colorPrimary" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnDelete_salad"
+                        style="@style/Widget.Material3.Button.Icon"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="8dp"
+                        android:contentDescription="Delete"
+                        app:icon="@drawable/ic_delete_24"
+                        app:cornerRadius="24dp"
+                        app:iconTint="@android:color/white"
+                        app:backgroundTint="@color/red_600"/>
+                </LinearLayout>
+
             </LinearLayout>
 
             <LinearLayout
@@ -182,4 +275,16 @@
                 android:layout_weight="1"/>
         </LinearLayout>
     </LinearLayout>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Add menu item"
+        android:layout_margin="16dp"
+        app:srcCompat="@drawable/ic_add_24"
+        android:tint="@android:color/white"
+        android:layout_gravity="end|bottom"/>
+
 </LinearLayout>

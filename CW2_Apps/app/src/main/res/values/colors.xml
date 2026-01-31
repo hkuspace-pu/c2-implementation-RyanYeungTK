@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="colorPrimary">#6750A4</color>
+    <color name="colorError">#B3261E</color>
+    <color name="colorOnError">#FFFFFF</color>
+    <color name="colorSecondaryContainer">#EADDFF</color>
+    <color name="colorOnSecondaryContainer">#21005D</color>
+
+    <color name="status_confirmed_bg">#006C4E</color>
+    <color name="status_cancelled_bg">#E53935</color>
+    <color name="status_neutral_bg">#EADDFF</color>
+    <color name="status_on_dark">#FFFFFF</color>
+    <color name="status_on_light">#1D192B</color>
+
+
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -8,12 +21,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#999999</color>
-
-    <color name="colorPrimary">#6650A4</color>      <!-- Purple40 -->
-    <color name="colorSecondary">#625B71</color>    <!-- PurpleGrey40 -->
-    <color name="colorTertiary">#7D5260</color>     <!-- Pink40 -->
-    <color name="colorPrimaryDark">#D0BCFF</color>  <!-- Purple80 -->
-    <color name="colorSecondaryDark">#CCC2DC</color><!-- PurpleGrey80 -->
-    <color name="colorTertiaryDark">#EFB8C8</color> <!-- Pink80 -->
+    <color name="red_600">#E53935</color>
 
 </resources>

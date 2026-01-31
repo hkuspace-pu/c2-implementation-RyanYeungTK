@@ -1,5 +1,22 @@
 <resources>
-    <style name="Theme.CW2_Apps" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+<!--    <style name="Theme.CW2_Apps" parent="Theme.MaterialComponents.DayNight.NoActionBar">-->
+<!--    </style>-->
+
+    <style name="Theme.CW2Apps" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorError">@color/colorError</item>
+        <item name="colorOnError">@color/colorOnError</item>
+        <item name="colorSecondaryContainer">@color/colorSecondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/colorOnSecondaryContainer</item>
     </style>
 
+
+    <style name="ThemeOverlay.CW2Apps.Toolbar.Purple" parent="ThemeOverlay.Material3.Dark.ActionBar">
+        <item name="colorSurface">@color/colorPrimary</item>
+        <item name="colorOnSurface">@android:color/white</item>
+    </style>
+
+
+
+    <style name="Theme.CW2_Apps" parent="@style/Theme.CW2Apps" />
 </resources>
