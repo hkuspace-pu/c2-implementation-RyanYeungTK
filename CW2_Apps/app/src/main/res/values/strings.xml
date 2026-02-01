@@ -37,9 +37,22 @@
     <string name="please_enter_your_account_name">Please enter your account name</string>
     <string name="contact">Contact No.</string>
     <string name="required">Please Enter Account Name and Password\n</string>
-    <string name="password_not_match">Confirm Password doesn\'t match.</string>
-    <string name="invalid_email">Invalid Email.</string>
-    <string name="invalid_contact">Invalid Contact.</string>
+    <string name="password_not_match">Confirm Password do not match.</string>
+    <string name="invalid_email">Please enter a valid email</string>
+    <string name="invalid_contact">Please enter a valid contact number</string>
     <string name="register_ok">Register Account Successful!</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="people">How many People</string>
+    <string name="store_location">Location</string>
+    <string name="invalid_people">Please select a valid group size</string>
+    <string name="invalid_time">Please choose a time in the future</string>
+    <string name="no_reservations">No Any Reservations Now</string>
+    <string name="reservation_updated">Reservation updated</string>
+    <string name="resv_meta">Party: %1$d • Location: %2$s • Status: %3$s</string>
+    <string name="reservation_cancelled">Reservation cancelled</string>
+    <string name="reminder_title">Reservation Reminder</string>
+    <string name="reminder_text">Your reservation at %1$s starts soon.</string>
+    <string name="reservation_created">Reservation created</string>
 </resources>
 

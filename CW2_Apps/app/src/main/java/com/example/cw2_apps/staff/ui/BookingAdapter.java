@@ -12,7 +12,7 @@ import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cw2_apps.R;
-import com.example.cw2_apps.databinding.ItemBookingBinding;      // ViewBinding 對應 item_booking.xml
+import com.example.cw2_apps.databinding.ItemBookingBinding;
 import com.example.cw2_apps.staff.model.Reservation;
 import com.google.android.material.color.MaterialColors;
 

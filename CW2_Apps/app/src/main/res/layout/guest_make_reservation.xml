@@ -29,91 +29,83 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            android:text="Date"
-            android:textColor="#111111"
-            android:textSize="14sp" />
-
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilDate"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="@drawable/bg_input"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@android:drawable/ic_menu_my_calendar"
-                android:hint="Select Date"
-                android:background="@null"/>
-
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="4dp"
-            android:text="Time"
-            android:textColor="#111111"
-            android:textSize="14sp" />
+            android:hint="@string/date"
+            app:endIconMode="custom"
+            app:endIconDrawable="@drawable/ic_calendar_24"
+            app:endIconContentDescription="@string/date">
 
-        <EditText
-            android:id="@+id/etTime"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:contentDescription="@string/date"
+                android:focusable="false"
+                android:inputType="none" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilTime"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="@drawable/bg_input"
-            android:hint="Enter Time"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="4dp"
-            android:text="People"
-            android:textColor="#111111"
-            android:textSize="14sp" />
+            android:layout_marginTop="12dp"
+            android:hint="@string/time"
+            app:endIconMode="custom"
+            app:endIconDrawable="@drawable/ic_time_24"
+            app:endIconContentDescription="@string/time">
 
-        <EditText
-            android:id="@+id/etPeople"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:contentDescription="@string/time"
+                android:focusable="false"
+                android:inputType="none" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilPeople"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="@drawable/bg_input"
-            android:hint="Number of People"
-            android:inputType="number"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="4dp"
-            android:text="Store Location"
-            android:textColor="#111111"
-            android:textSize="14sp" />
+            android:layout_marginTop="12dp"
+            android:hint="@string/people">
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/etPeopleGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:contentDescription="@string/people"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <Spinner
-            android:id="@+id/spinnerLocation"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilLocation"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="@drawable/bg_input"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="@string/store_location">
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/etLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:contentDescription="@string/store_location"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/btnConfirm"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/bg_capsule_dark"
             android:text="Confirm"
             android:textAllCaps="false"

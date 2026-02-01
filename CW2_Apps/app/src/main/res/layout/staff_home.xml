@@ -24,35 +24,56 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <TextView
+        android:id="@+id/tvWelcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="12dp"
+        android:text="Welcome!"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+
+    <TextView
         android:id="@+id/tvBannerTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/staff"
         android:text="@string/staff"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="22sp"
         android:textStyle="bold"
         android:gravity="center"
         android:padding="24dp"
-        android:layout_marginTop="16dp"
-        android:background="@color/black" />
+        android:background="@drawable/bg_card_light" />
 
     <Button
         android:id="@+id/btnMenu"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_marginTop="24dp"
         android:background="@drawable/btn_outline"
         android:text="@string/menuManage"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:textAllCaps="false"/>
 
     <Button
         android:id="@+id/btnBooking"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_marginTop="16dp"
         android:background="@drawable/btn_outline"
         android:text="@string/booking_record"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/btnNotice"
@@ -61,7 +82,10 @@
         android:text="@string/notice"
         android:textColor="@color/white"
         android:background="@drawable/btn_outline"
-        android:layout_marginTop="16dp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/btnSetting"
@@ -70,6 +94,9 @@
         android:text="@string/setting"
         android:textColor="@color/white"
         android:background="@drawable/btn_outline"
-        android:layout_marginTop="16dp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:textAllCaps="false" />
 
 </LinearLayout>

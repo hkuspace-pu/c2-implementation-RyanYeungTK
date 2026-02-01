@@ -6,7 +6,9 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.cw2_apps.LoginActivity;
 import com.example.cw2_apps.R;
+import com.example.cw2_apps.data.session.SessionStore;
 import com.google.android.material.appbar.MaterialToolbar;
+import android.widget.TextView;
 
 
 public class GuestHomeActivity extends AppCompatActivity {
@@ -31,17 +33,22 @@ public class GuestHomeActivity extends AppCompatActivity {
             return false;
         });
 
+        TextView tvWelcome = findViewById(R.id.tvWelcome);
+        String uname = SessionStore.username(this);
+        if (tvWelcome != null) {
+            String username= uname != null ? uname : "Guest";
+            tvWelcome.setText("Welcome! " + username);
+        }
+
 
         btnMenu.setOnClickListener(v -> {
             Intent intent = new Intent(this, GuestMenuActivity.class);
             startActivity(intent);
-            finish();
         });
 
         btnBooking.setOnClickListener(v -> {
             Intent intent = new Intent(this, GuestBookingActivity.class);
             startActivity(intent);
-            finish();
         });
 
         btnReservation.setOnClickListener(v -> {

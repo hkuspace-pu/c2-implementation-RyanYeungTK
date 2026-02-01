@@ -2,9 +2,12 @@ package com.example.cw2_apps.staff;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.cw2_apps.LoginActivity;
 import com.example.cw2_apps.R;
+import com.example.cw2_apps.data.session.SessionStore;
 import com.google.android.material.appbar.MaterialToolbar;
 
 public class StaffHomeActivity extends AppCompatActivity {
@@ -28,6 +31,12 @@ public class StaffHomeActivity extends AppCompatActivity {
             return false;
         });
 
+        TextView tvWelcome = findViewById(R.id.tvWelcome);
+        String uname = SessionStore.username(this);
+        if (tvWelcome != null) {
+            String username= uname != null ? uname : "Guest";
+            tvWelcome.setText("Welcome! " + username);
+        }
 
         btnMenu.setOnClickListener(v -> {
             Intent intent = new Intent(this, StaffMenuActivity.class);

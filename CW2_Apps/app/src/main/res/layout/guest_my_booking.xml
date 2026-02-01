@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:layout_height="match_parent">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -14,44 +12,27 @@
         android:theme="@style/ThemeOverlay.CW2Apps.Toolbar.Purple">
 
         <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/topAppBar"
+            android:id="@id/topAppBar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:title="@string/my_booking"
             app:titleCentered="true"
-            app:navigationIcon="@drawable/ic_arrow_back"
-            app:navigationContentDescription="Back" />
+            app:navigationIcon="@drawable/ic_arrow_back"/>
     </com.google.android.material.appbar.AppBarLayout>
 
-
-    <LinearLayout
-        android:id="@+id/containerBookings"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@id/rvBookings"
         android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="12dp"/>
+
+    <!-- 空狀態 -->
+    <TextView
+        android:id="@+id/tvEmpty"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
-
-        <include
-            android:id="@+id/itemBooking1"
-            layout="@layout/item_booking" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="12dp" />
-
-        <include
-            android:id="@+id/itemBooking2"
-            layout="@layout/item_booking" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="12dp" />
-
-        <include
-            android:id="@+id/itemBooking3"
-            layout="@layout/item_booking" />
-
-    </LinearLayout>
-
-
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="24dp"
+        android:text="@string/no_reservations"/>
 </LinearLayout>
