@@ -26,4 +26,6 @@
     <string name="cancel">Cancel</string>
     <string name="confirmed">Confirmed</string>
     <string name="confirm">Confirm</string>
+    <string name="role_auto_detected">Role will be determined automatically after login</string>
 </resources>
+

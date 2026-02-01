@@ -20,165 +20,161 @@
             app:titleCentered="true" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
-
-        <TextView
-            android:id="@+id/tvLoginTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/login"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="#111111"
-            android:gravity="center"
-            android:layout_marginBottom="16dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/account"
-            android:textSize="14sp"
-            android:textColor="#777777"
-            android:layout_marginBottom="4dp"/>
-
-        <EditText
-            android:id="@+id/etAccount"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:hint="staff@example.com"
-            android:inputType="textEmailAddress"
-            android:background="@drawable/bg_input"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/password"
-            android:textSize="14sp"
-            android:textColor="#777777"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="4dp"/>
-
-        <EditText
-            android:id="@+id/etPassword"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:hint="●●●●●●"
-            android:inputType="textPassword"
-            android:background="@drawable/bg_input"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"/>
-
-
-        <TextView
-            android:id="@+id/tvRoleLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="6dp"
-            android:text="@string/role"
-            android:textColor="#777777"
-            android:textSize="14sp" />
-
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <LinearLayout
+            android:id="@+id/loginContent"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal">
-
-            <com.google.android.material.chip.ChipGroup
-                android:id="@+id/chipGroupRole"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:selectionRequired="true"
-                app:singleSelection="true">
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipGuest"
-                    style="@style/Widget.MaterialComponents.Chip.Choice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="12dp"
-                    android:text="@string/guest"
-                    android:textAllCaps="false"
-                    app:checkedIconVisible="false"
-                    app:chipMinHeight="48dp" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipStaff"
-                    style="@style/Widget.MaterialComponents.Chip.Choice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/staff"
-                    android:textAllCaps="false"
-                    app:checkedIconVisible="false"
-                    app:chipMinHeight="48dp" />
-            </com.google.android.material.chip.ChipGroup>
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/tvForgot"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/forgot_password"
-            android:textSize="13sp"
-            android:textColor="#ff0000"
-            android:layout_gravity="end"
-            android:layout_marginTop="8dp"/>
-
-        <Button
-            android:id="@+id/btnLogin"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:text="@string/login"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/bg_capsule_dark"
-            android:layout_marginTop="12dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_marginTop="14dp"
-            android:layout_marginBottom="10dp">
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"
-                android:background="#E0E0E0"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
 
             <TextView
+                android:id="@+id/tvLoginTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/login"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#111111"
+                android:gravity="center"
+                android:layout_marginBottom="16dp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilAccount"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/account"
+                app:hintEnabled="true"
+                app:boxStrokeWidth="1dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusBottomEnd="12dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etAccount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="username,emailAddress"
+                    android:contentDescription="@string/account"
+                    android:imeOptions="actionNext"
+                    android:importantForAutofill="yes"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilPassword"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:hint="@string/password"
+                app:endIconMode="password_toggle"
+                app:boxStrokeWidth="1dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusBottomEnd="12dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:importantForAutofill="yes"
+                    android:autofillHints="password"
+                    android:imeOptions="actionDone"
+                    android:contentDescription="@string/password" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tvRoleHelper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/role_auto_detected"
+                android:textSize="13sp"
+                android:textColor="#777777" />
+
+            <TextView
+                android:id="@+id/tvForgot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/or"
-                android:textColor="#777777"
-                android:textSize="12sp"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"/>
+                android:text="@string/forgot_password"
+                android:textSize="13sp"
+                android:textColor="#ff0000"
+                android:layout_gravity="end"
+                android:layout_marginTop="8dp"
+                android:clickable="true"
+                android:focusable="true" />
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"
-                android:background="#E0E0E0"/>
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="@string/login"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/bg_capsule_dark"
+                android:layout_marginTop="12dp" />
+
+            <!-- 分隔線 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="14dp"
+                android:layout_marginBottom="10dp">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"
+                    android:background="#E0E0E0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/or"
+                    android:textColor="#777777"
+                    android:textSize="12sp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"
+                    android:background="#E0E0E0" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnRegister"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_capsule_outline_dark"
+                android:text="@string/register"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF" />
+
+            <ProgressBar
+                android:id="@+id/progress"
+                style="?android:attr/progressBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:visibility="gone"
+                android:indeterminate="true"
+                android:layout_marginTop="8dp" />
+
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btnRegister"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="@drawable/bg_capsule_outline_dark"
-            android:text="@string/register"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF" />
-    </LinearLayout>
+    </FrameLayout>
 
 </LinearLayout>

@@ -45,9 +45,10 @@ android {
 
 dependencies {
 //    implementation libs.appcompat
-//    implementation libs.material
     implementation libs.material
     implementation libs.appcompat.v170
+    implementation libs.volley
+    implementation(libs.gson.v2110)
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
