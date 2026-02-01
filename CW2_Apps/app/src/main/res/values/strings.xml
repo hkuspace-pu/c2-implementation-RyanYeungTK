@@ -27,5 +27,19 @@
     <string name="confirmed">Confirmed</string>
     <string name="confirm">Confirm</string>
     <string name="role_auto_detected">Role will be determined automatically after login</string>
+    <string name="please_enter_your_email">Please enter your email</string>
+    <string name="email">Email</string>
+    <string name="please_enter_your_last_name">Please enter your last name</string>
+    <string name="last_name">Last Name</string>
+    <string name="please_enter_your_first_name">Please enter your first name</string>
+    <string name="first_name">First Name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="please_enter_your_account_name">Please enter your account name</string>
+    <string name="contact">Contact No.</string>
+    <string name="required">Please Enter Account Name and Password\n</string>
+    <string name="password_not_match">Confirm Password doesn\'t match.</string>
+    <string name="invalid_email">Invalid Email.</string>
+    <string name="invalid_contact">Invalid Contact.</string>
+    <string name="register_ok">Register Account Successful!</string>
 </resources>
 

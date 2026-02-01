@@ -17,6 +17,7 @@ import com.example.cw2_apps.staff.StaffHomeActivity;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText etAccount, etPassword;
+    private static final String PREFILL_USERNAME = "prefill_username";
     private View progress;
     private IAuthRepository authRepo = new AuthRepository();
 
@@ -31,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
         etPassword = findViewById(R.id.etPassword);
         progress  = findViewById(R.id.progress);
         AuthRepository authRepo = new AuthRepository();
+        prefillUsernameFromIntent(getIntent());
 
         btnLogin.setOnClickListener(v -> {
             String u = etAccount.getText().toString().trim();
@@ -68,5 +70,31 @@ public class LoginActivity extends AppCompatActivity {
             finish();
         });
     }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        prefillUsernameFromIntent(intent);
+    }
+
+    private void prefillUsernameFromIntent(Intent intent) {
+        if (intent == null) return;
+        String prefill = intent.getStringExtra(PREFILL_USERNAME);
+        if (prefill == null || prefill.isEmpty()) return;
+
+        EditText etAccount = findViewById(R.id.etAccount);
+        if (etAccount != null) {
+            etAccount.setText(prefill);
+            etAccount.setSelection(prefill.length());
+
+            EditText etPassword = findViewById(R.id.etPassword);
+            if (etPassword != null) {
+                etPassword.requestFocus();
+            }
+        }
+
+    }
+
 
 }
