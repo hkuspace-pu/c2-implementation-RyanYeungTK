@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.cw2_apps.R;
+import com.example.cw2_apps.notifications.NotificationQueue;
 import com.example.cw2_apps.staff.model.Reservation;
 import com.example.cw2_apps.staff.ui.BookingAdapter;
 import com.google.android.material.appbar.MaterialToolbar;
@@ -16,6 +17,7 @@ import com.google.android.material.snackbar.Snackbar;
 public class StaffBookActivity extends AppCompatActivity {
 
     private BookingAdapter adapter;
+    private NotificationQueue notice;
 
     private final java.util.concurrent.Executor exec = java.util.concurrent.Executors.newSingleThreadExecutor();
     private com.example.cw2_apps.data.repo.ReservationRepository repo;
@@ -56,6 +58,7 @@ public class StaffBookActivity extends AppCompatActivity {
                                 runOnUiThread(() -> {
                                     if (rows > 0) {
                                         adapter.updateItemStatus(position, "CONFIRMED");
+                                        com.example.cw2_apps.notifications.NotificationQueue.enqueueConfirmed(StaffBookActivity.this, r.id);
                                         Snackbar.make(sourceView, "Booking confirmed", Snackbar.LENGTH_SHORT).show();
                                     } else {
                                         Snackbar.make(sourceView, "Update failed", Snackbar.LENGTH_SHORT).show();

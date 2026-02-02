@@ -48,11 +48,14 @@ public class LoginActivity extends AppCompatActivity {
                             progress.setVisibility(View.GONE);
                             btnLogin.setEnabled(true);
                             SessionStore.save(LoginActivity.this, session.username, session.role.name().toLowerCase());
-                            Intent it = (session.role == Role.STAFF)
-                                    ? new Intent(LoginActivity.this, StaffHomeActivity.class)
-                                    : new Intent(LoginActivity.this, GuestHomeActivity.class);
-                            startActivity(it);
-                            finish();
+                            if (session.role == Role.STAFF) {
+                                startActivity(new Intent(LoginActivity.this, StaffHomeActivity.class));
+                                finish();
+                            } else { // GUEST
+                                flushConfirmedNotificationsIfAny(session.username);
+                                startActivity(new Intent(LoginActivity.this, GuestHomeActivity.class));
+                                finish();
+                            }
                         }
                         @Override public void onError(String message) {
                             progress.setVisibility(View.GONE);
@@ -62,7 +65,6 @@ public class LoginActivity extends AppCompatActivity {
                     }
             );
         });
-
 
         btnRegister.setOnClickListener(v -> {
             Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
@@ -96,5 +98,58 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    private void flushConfirmedNotificationsIfAny(String username) {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+            if (checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS)
+                    != android.content.pm.PackageManager.PERMISSION_GRANTED) {
+                return;
+            }
+        }
+
+        java.util.Set<String> ids =
+                com.example.cw2_apps.notifications.NotificationQueue.pollAllConfirmed(this);
+        if (ids.isEmpty()) return;
+
+        com.example.cw2_apps.data.local.db.ReservationsDbHelper dbh =
+                new com.example.cw2_apps.data.local.db.ReservationsDbHelper(this);
+        android.database.sqlite.SQLiteDatabase db = dbh.getReadableDatabase();
+
+        com.example.cw2_apps.notifications.NotificationHelper.ensureChannel(this);
+
+        for (String idStr : ids) {
+            long id;
+            try { id = Long.parseLong(idStr); } catch (Exception e) { continue; }
+
+            android.database.Cursor c = db.query(
+                    "reservations",
+                    new String[]{"date_time","location","status","guest_username"},
+                    "id=?",
+                    new String[]{ String.valueOf(id) },
+                    null, null, null
+            );
+            if (c.moveToFirst()) {
+                long when = c.getLong(0);
+                String location = c.getString(1);
+                String status = c.getString(2);
+                String guest = c.getString(3);
+
+                if ("CONFIRMED".equals(status) && username.equals(guest)) {
+                    java.text.SimpleDateFormat fmt =
+                            new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm", java.util.Locale.US);
+                    String text = "Your booking at " + location + " on " +
+                            fmt.format(new java.util.Date(when)) + " is confirmed";
+
+                    androidx.core.app.NotificationCompat.Builder b =
+                            com.example.cw2_apps.notifications.NotificationHelper
+                                    .builder(this, getString(R.string.app_name), text);
+
+                    int notifId = (int) (10000 + id);
+                    androidx.core.app.NotificationManagerCompat.from(this).notify(notifId, b.build());
+                }
+            }
+            c.close();
+        }
+        db.close();
+    }
 
 }
