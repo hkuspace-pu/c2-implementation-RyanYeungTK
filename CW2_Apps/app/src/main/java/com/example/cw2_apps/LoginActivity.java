@@ -9,6 +9,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.cw2_apps.data.repo.AuthRepository;
 import com.example.cw2_apps.data.repo.IAuthRepository;
+import com.example.cw2_apps.data.session.ProfileStore;
 import com.example.cw2_apps.data.session.SessionStore;
 import com.example.cw2_apps.domain.model.AuthSession;
 import com.example.cw2_apps.domain.model.Role;
@@ -48,6 +49,16 @@ public class LoginActivity extends AppCompatActivity {
                             progress.setVisibility(View.GONE);
                             btnLogin.setEnabled(true);
                             SessionStore.save(LoginActivity.this, session.username, session.role.name().toLowerCase());
+
+                            authRepo.getProfile(LoginActivity.this, "20337839", session.username,
+                                    new IAuthRepository.ProfileCallback() {
+                                        @Override public void onLoaded(String name, String email, String contact) {
+                                            ProfileStore.save(LoginActivity.this, name, email, contact);
+                                        }
+                                        @Override public void onError(String message) {
+                                        }
+                                    });
+
                             if (session.role == Role.STAFF) {
                                 startActivity(new Intent(LoginActivity.this, StaffHomeActivity.class));
                                 finish();

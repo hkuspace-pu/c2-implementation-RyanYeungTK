@@ -4,8 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.cw2_apps.R;
+import com.example.cw2_apps.data.session.ProfileStore;
+import com.example.cw2_apps.data.session.SessionStore;
 import com.google.android.material.appbar.MaterialToolbar;
 
 public class GuestSettingActivity extends AppCompatActivity {
@@ -21,6 +25,25 @@ public class GuestSettingActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
+
+        TextView tvAccountName  = findViewById(R.id.tvAccountName);
+        TextView tvEmailValue   = findViewById(R.id.tvEmailValue);
+        TextView tvContactValue = findViewById(R.id.tvContactValue);
+
+        String name    = ProfileStore.name(this);
+        String email   = ProfileStore.email(this);
+        String contact = ProfileStore.contact(this);
+
+        if (name == null || name.trim().isEmpty()) {
+            String fallback = SessionStore.username(this);
+            name = (fallback == null || fallback.isEmpty()) ? "—" : fallback;
+        }
+        if (email == null || email.trim().isEmpty())   email = "—";
+        if (contact == null || contact.trim().isEmpty()) contact = "—";
+
+        tvAccountName.setText(name);
+        tvEmailValue.setText(email);
+        tvContactValue.setText(contact);
 
         Spinner spinner = findViewById(R.id.spinnerNotify);
 

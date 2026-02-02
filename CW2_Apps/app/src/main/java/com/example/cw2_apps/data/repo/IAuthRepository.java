@@ -14,10 +14,16 @@ public interface IAuthRepository {
         void onError(String message);
     }
 
+    interface ProfileCallback {
+        void onLoaded(String name, String email, String contact);
+        void onError(String message);
+    }
+
 
     void login(Context ctx, String studentId, String username, String password, LoginCallback cb);
 
     void register(Context ctx, String studentId, String username, String password, String firstname, String lastname, String email, String contact, String usertype, RegisterCallback cb);
 
+    void getProfile(Context ctx, String studentId, String username, ProfileCallback cb);
 }
 

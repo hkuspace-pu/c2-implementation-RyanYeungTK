@@ -52,6 +52,32 @@ public class AuthRepository implements IAuthRepository {
     }
 
 
+    @Override
+    public void getProfile(Context ctx, String studentId, String username, ProfileCallback cb) {
+        UserService api = new UserService(ctx);
+        api.readAllUsers(studentId, resp -> {
+            try {
+                JSONArray users = extractUsers(resp);
+                if (users == null) { cb.onError("Empty users list"); return; }
+                JSONObject u = findUserByUsername(users, username);
+                if (u == null) { cb.onError("User not found"); return; }
+
+                String first = u.optString("firstname", "").trim();
+                String last  = u.optString("lastname", "").trim();
+                String email = u.optString("email", "").trim();
+                String contact = u.optString("contact", "").trim();
+
+                String name = (first + " " + last).trim();
+                if (name.isEmpty()) name = u.optString("username", username);
+
+                cb.onLoaded(name, email, contact);
+            } catch (Exception e) {
+                cb.onError("Parse error");
+            }
+        }, error -> cb.onError("Network error"));
+    }
+
+
     private JSONArray extractUsers(JSONObject resp) {
         return resp != null ? resp.optJSONArray("users") : null;
     }

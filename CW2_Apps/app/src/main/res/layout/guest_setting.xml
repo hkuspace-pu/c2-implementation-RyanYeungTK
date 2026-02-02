@@ -55,17 +55,16 @@
 
                 </LinearLayout>
 
-                <!-- Account -->
                 <TextView
-                    android:id="@+id/tvAccountLabel"
+                    android:id="@+id/tvEmailLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Account"
+                    android:text="Email"
                     android:textColor="#111111"
                     android:textSize="16sp"/>
 
                 <TextView
-                    android:id="@+id/tvAccountValue"
+                    android:id="@+id/tvEmailValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="ryan@example.com"
@@ -73,6 +72,24 @@
                     android:textSize="14sp"
                     android:layout_marginTop="4dp"
                     android:layout_marginBottom="12dp"/>
+            <TextView
+                android:id="@+id/tvContactLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contact"
+                android:textColor="#111111"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/tvContactValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12345678"
+                android:textColor="#777777"
+                android:textSize="14sp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="12dp"/>
+
             <TextView
                 android:id="@+id/tvPwd"
                 android:layout_width="wrap_content"
