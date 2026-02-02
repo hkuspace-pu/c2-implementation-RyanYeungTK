@@ -54,5 +54,6 @@
     <string name="reminder_title">Reservation Reminder</string>
     <string name="reminder_text">Your reservation at %1$s starts soon.</string>
     <string name="reservation_created">Reservation created</string>
+    <string name="delete">Delete</string>
 </resources>
 

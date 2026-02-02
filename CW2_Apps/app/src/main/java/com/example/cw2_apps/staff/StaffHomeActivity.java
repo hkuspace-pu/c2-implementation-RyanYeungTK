@@ -18,7 +18,6 @@ public class StaffHomeActivity extends AppCompatActivity {
 
         Button btnMenu = findViewById(R.id.btnMenu);
         Button btnBooking = findViewById(R.id.btnBooking);
-        Button btnNotice = findViewById(R.id.btnNotice);
         Button btnSetting = findViewById(R.id.btnSetting);
 
         MaterialToolbar toolbar = findViewById(R.id.topAppBar);
@@ -48,12 +47,6 @@ public class StaffHomeActivity extends AppCompatActivity {
             Intent intent = new Intent(this, StaffBookActivity.class);
             startActivity(intent);
             finish();
-        });
-
-
-        btnNotice.setOnClickListener(v -> {
-            Intent intent = new Intent(this, StaffNoticeActivity.class);
-            startActivity(intent);
         });
 
         btnSetting.setOnClickListener(v -> {

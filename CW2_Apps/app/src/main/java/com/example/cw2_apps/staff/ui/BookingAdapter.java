@@ -1,7 +1,6 @@
 package com.example.cw2_apps.staff.ui;
 
 import android.graphics.drawable.Drawable;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,14 +24,13 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.VH> {
 
     public interface OnItemActionListener {
         void onConfirm(Reservation r, int position, View sourceView);
-        void onCancel(Reservation r, int position, View sourceView);
+        void onDelete(Reservation r, int position, View sourceView);
     }
 
     private final List<Reservation> items = new ArrayList<>();
     private OnItemActionListener listener;
     private final Role role;
 
-    public BookingAdapter() { this(Role.STAFF); }
     public BookingAdapter(Role role) { this.role = role; }
 
     public void setOnItemActionListener(OnItemActionListener l) { this.listener = l; }
@@ -55,32 +53,21 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.VH> {
     @Override
     public void onBindViewHolder(@NonNull VH h, int pos) {
         Reservation r = items.get(pos);
-
         h.b.tvDateTime.setText(r.datetime);
         h.b.tvPeopleLocation.setText(r.party);
         applyStatusStyle(h.b.tvStatus, r.status);
 
-        if (role == Role.STAFF) {
-            if ("CONFIRMED".equals(r.status)) {
-                h.b.btnPrimary.setText(R.string.confirmed);
-                h.b.btnPrimary.setEnabled(false);
-            } else {
-                h.b.btnPrimary.setText(R.string.confirm);
-                h.b.btnPrimary.setEnabled(true);
-            }
-            h.b.btnSecondary.setText(R.string.cancel);
-        } else { // GUEST
-            h.b.btnPrimary.setText(R.string.edit);
-            h.b.btnPrimary.setEnabled(true);
-            h.b.btnSecondary.setText(R.string.cancel);
-        }
+        h.b.btnPrimary.setEnabled(true);
+        h.b.btnSecondary.setEnabled(true);
 
         h.b.btnPrimary.setOnClickListener(v -> {
             if (listener != null) listener.onConfirm(r, h.getBindingAdapterPosition(), v);
         });
+
         h.b.btnSecondary.setOnClickListener(v -> {
-            if (listener != null) listener.onCancel(r, h.getBindingAdapterPosition(), v);
+            if (listener != null) listener.onDelete(r, h.getBindingAdapterPosition(), v);
         });
+
     }
 
     @Override
@@ -91,6 +78,13 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.VH> {
         items.get(position).status = newStatus;
         notifyItemChanged(position);
     }
+
+    public void removeItem(int position) {
+        if (position < 0 || position >= items.size()) return;
+        items.remove(position);
+        notifyItemRemoved(position);
+    }
+
 
     static class VH extends RecyclerView.ViewHolder {
         final ItemBookingBinding b;

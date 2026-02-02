@@ -41,8 +41,6 @@ public class NotificationPublisher extends BroadcastReceiver {
             } catch (SecurityException ignored) {
             }
         }
-
-
     }
 
     private static void ensureChannel(Context ctx){

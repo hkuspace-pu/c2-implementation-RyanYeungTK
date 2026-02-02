@@ -20,7 +20,6 @@ public class GuestHomeActivity extends AppCompatActivity {
         Button btnMenu = findViewById(R.id.btnMenu);
         Button btnBooking = findViewById(R.id.btnBooking);
         Button btnReservation = findViewById(R.id.btnReservation);
-        Button btnNotice = findViewById(R.id.btnNotice);
         Button btnSetting = findViewById(R.id.btnSetting);
 
         MaterialToolbar toolbar = findViewById(R.id.topAppBar);
@@ -53,11 +52,6 @@ public class GuestHomeActivity extends AppCompatActivity {
 
         btnReservation.setOnClickListener(v -> {
             Intent intent = new Intent(this, GuestReservationActivity.class);
-            startActivity(intent);
-        });
-
-        btnNotice.setOnClickListener(v -> {
-            Intent intent = new Intent(this, GuestNoticeActivity.class);
             startActivity(intent);
         });
 

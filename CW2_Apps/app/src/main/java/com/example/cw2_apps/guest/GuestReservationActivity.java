@@ -19,6 +19,8 @@ import com.google.android.material.textfield.TextInputLayout;
 import java.util.Calendar;
 import java.util.Locale;
 import java.text.SimpleDateFormat;
+import java.util.TimeZone;
+
 import android.widget.Toast;
 import com.example.cw2_apps.R;
 import com.google.android.material.appbar.MaterialToolbar;
@@ -90,8 +92,7 @@ public class GuestReservationActivity extends AppCompatActivity {
                 Toast.makeText(this, R.string.invalid_time, Toast.LENGTH_SHORT).show();
                 return;
             }
-            long rowId = new ReservationRepository(this)
-                    .create(username, when, partySize, location, null);
+            long rowId = new ReservationRepository(this).create(username, when, partySize, location, null);
             scheduleReminder(this, (int)rowId, when - 30 * 60 * 1000L,
                     getString(R.string.reminder_title),
                     getString(R.string.reminder_text, location));
@@ -124,6 +125,8 @@ public class GuestReservationActivity extends AppCompatActivity {
     private static long toEpoch(String yyyyMMdd, String HHmm){
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.US);
+            sdf.setLenient(false);
+            sdf.setTimeZone(TimeZone.getTimeZone("Asia/Hong_Kong"));
             return sdf.parse(yyyyMMdd + " " + HHmm).getTime();
         } catch (Exception e) { return -1L; }
     }
@@ -139,11 +142,7 @@ public class GuestReservationActivity extends AppCompatActivity {
         i.putExtra("title", title);
         i.putExtra("text", text);
         i.putExtra("notifId", id);
-        PendingIntent pi = PendingIntent.getBroadcast(
-                ctx,
-                id,
-                i,
-                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
+        PendingIntent pi = PendingIntent.getBroadcast(ctx, id, i, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
         );
 
         boolean canExact = canUseExactAlarms(ctx, am);
